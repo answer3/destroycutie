@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">      
+        <title>Destroy The Cutie</title>
+        <meta name="description" content="Browse over 300 000 of the best porn galleries for FREE! Hot sex pictures sorted by categories, hand picked and updated daily.">
+        <meta name="viewport" content="width=device-width; initial-scale=0.8; maximum-scale=0.8;">
+		<link rel="stylesheet" type="text/css" href="/css/styles.css">
+		<script src="https://code.jquery.com/jquery-3.0.0.slim.min.js" integrity="sha256-Rf4BadfyCtsvHmO89BUZcbYvNNvZvOT08ALfEzvCsD0=" crossorigin="anonymous"></script>
+		<script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
+		<script src="/js/imagesLoad.js"></script>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <!--<link href="/favicon/ppics_152x152_w.png" sizes="152x152" rel="apple-touch-icon-precomposed">
+        <link href="/favicon/ppics_144x144_w.png" sizes="144x144" rel="apple-touch-icon-precomposed">
+        <link href="/favicon/ppics_120x120_w.png" sizes="120x120" rel="apple-touch-icon-precomposed">
+        <link href="/favicon/ppics_114x114_w.png" sizes="114x114" rel="apple-touch-icon-precomposed">
+        <link href="/favicon/ppics_72x72_w.png" sizes="72x72" rel="apple-touch-icon-precomposed">
+        <link href="/favicon/ppics_57x57_w.png" rel="apple-touch-icon-precomposed">-->
+    </head>
+	<body>
+		<h2 class="header-title">WANNA SEE THOSE CUTIES DESTROYED?</h2>
+		<div id="tiles" class="grid">
+			<?php //class="grid js-masonry" data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": 300,"gutter":5,"fitWidth":true }'?>        
+             <div class="logo-main thumbwook grid-item">
+                        <div class="logo">
+                            <a href="/">
+                                <img class="logo-desctop1" src="<?php echo $cdn_url?>/images/dst/destroy_cutie.png" width="300" alt="Destroy The Cutie" >
+                            </a>
+                        </div>
+                    </div>
+					<?php 
+					foreach ($content as $item){ ?>
+						<div class="thumbwook grid-item">
+							<a class="rel-link" target="_blank" href="<?php echo $cdn_url.$item['link'];?>">
+								<img src="<?php echo $item['image_url'];?>" >
+							</a>
+						</div>
+					<?php }?>				
+		</div>
+		
+		<?php if ($isShowPagination){?>
+		<div class="pagination">
+			<a <?php if($cur_page==0){echo 'class="current"';}?> href="/">
+				<?php echo ($cur_page==0)?'1':'First'?>
+			</a>
+			
+			<?php if($cur_page-1>0 and $cur_page-1<($pages_count-1)){?>
+				<a href="/<?php echo $cur_page-1?>"><?php echo $cur_page?></a>
+			<?php }?>
+			
+			<?php if($cur_page>0 and $cur_page<($pages_count-1)){?>
+				<a class="current" href="/<?php echo $cur_page?>"><?php echo $cur_page+1?></a>
+			<?php }?>
+				
+			<?php if($cur_page+1<($pages_count-1)){?>
+				<a href="/<?php echo $cur_page+1?>"><?php echo $cur_page+2?></a>
+			<?php }?>
+				
+			<a <?php if($cur_page==($pages_count-1)){echo 'class="current"';}?> href="/<?php echo $pages_count-1?>">
+				<?php echo ($cur_page==($pages_count-1))?$pages_count:'Last'?>
+			</a>
+			</div>		
+		<?php }?>		
+		<script>
+			var $container = $('.grid');
+			$container.imagesLoaded(function(){
+				$container.masonry({
+					gutter: 5,
+					fitWidth:true
+				});
+			});
+		</script>
+	</body>
+</html>
