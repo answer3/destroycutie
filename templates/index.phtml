@@ -4,10 +4,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">      
         <title>Destroy The Cutie</title>
         <meta name="description" content="Browse over 300 000 of the best porn galleries for FREE! Hot sex pictures sorted by categories, hand picked and updated daily.">
-        <meta name="viewport" content="width=device-width; initial-scale=0.8; maximum-scale=0.8;">
 		<link rel="stylesheet" type="text/css" href="/css/styles.css">
-		<script src="https://code.jquery.com/jquery-3.0.0.slim.min.js" integrity="sha256-Rf4BadfyCtsvHmO89BUZcbYvNNvZvOT08ALfEzvCsD0=" crossorigin="anonymous"></script>
-		<script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script src="http://cdn.jsdelivr.net/masonry/2.1.08/jquery.masonry.min.js"></script>
+		<script src="http://cdn.jsdelivr.net/jquery.lazyload/1.8.4/jquery.lazyload.js" ></script>
+		<!--<script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>-->
 		<script src="/js/imagesLoad.js"></script>
         <!--<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">-->
         <!--<link href="/favicon/ppics_152x152_w.png" sizes="152x152" rel="apple-touch-icon-precomposed">
@@ -29,13 +30,17 @@
                         </div>
                     </div>
 					<?php 
+					$iter = 1;
 					foreach ($content as $item){ ?>
 						<div class="thumbwook grid-item">
-							<a class="rel-link" target="_blank" href="<?php echo $cdn_url.$item['link'];?>">
-								<img src="<?php echo $item['image_url'];?>" >
+							<a class="rel-link" target="_blank" href="<?php echo $item['link'];?>">
+								
+								<img class="<?php echo ($iter>=10)?'not-loaded':'';?>" src="<?php echo $item['image_url'];?>" data-original="<?php echo $item['image_url'];?>">
 							</a>
 						</div>
-					<?php }?>				
+					<?php 
+					$iter++;
+					}?>				
 		</div>
 		
 		<?php if ($isShowPagination){?>
@@ -68,6 +73,14 @@
 					gutter: 5,
 					fitWidth:true
 				});
+				$('.not-loaded').lazyload({
+					effect: 'fadeIn',
+					load: function() {
+						// Disable trigger on this image
+						$(this).removeClass("not-loaded");
+						$container.masonry('reload');
+					}
+    });
 			});
 		</script>
 	</body>

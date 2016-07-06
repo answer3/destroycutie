@@ -20,9 +20,17 @@
 }
 
 .grid{margin: 5px auto;height: 500px;}
-.grid-item { margin-bottom: 3px;width: 300px;position: absolute;left:-9999px;}
+.grid-item { margin: 3px;width: 300px;}
 
-.rel-link:after {
+img.not-loaded
+{
+	display: block;
+	width: 100%;
+	height: auto !important;
+	opacity:1;
+}
+
+/*.rel-link:after {
     content:'\A';
     position:absolute;
     width:100%; height:100%;
@@ -36,7 +44,7 @@
 }
 .rel-link:hover:after {
     opacity:0.7;
-}
+}*/
 
 .pagination{
 	background-color: #666666;
