@@ -11,7 +11,9 @@ require '../vendor/NotORM.php';
 require 'GoogleParser.php';
 
 const SECRET = 'eWIiubyP9P9rlLJkI6xD';
-const CDN_URL = '';
+//for localhost
+//const CDN_URL = '/images/';
+const CDN_URL = 'http://cdn.destroyedcuties.com/';
 const ITEMS_PER_PAGE=30;
 
 $app = new \Slim\App(["settings" => $config]);
@@ -88,7 +90,7 @@ $app->get('/sync_data/{secret}', function (Request $request, Response $response)
 		}
 		$randomPrefix = mt_rand(1,900000);
 		savePic($item['imageurl'],$randomPrefix);
-		$insertData['image_url'] = '/images/'.$randomPrefix.'_'.getFilename($item['imageurl']);
+		$insertData['image_url'] = $randomPrefix.'_'.getFilename($item['imageurl']);
 		$insertData['link'] = $item['linkfromtheimage'];
 		$this->db->content->insert($insertData);
 	}
