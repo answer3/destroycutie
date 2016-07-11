@@ -7,11 +7,7 @@
 		<meta name="hubtraffic-domain-validation" content="dc3b312e06aa01b1" />
 		<meta name="xhamster-site-verification" content="dcb793db0e4ba8eb59edaea6452e735b"/>
 		<link rel="stylesheet" type="text/css" href="/css/styles.css">
-		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-		<script src="http://cdn.jsdelivr.net/masonry/2.1.08/jquery.masonry.min.js"></script>
-		<script src="http://cdn.jsdelivr.net/jquery.lazyload/1.8.4/jquery.lazyload.js" ></script>
-		<!--<script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>-->
-		<script src="/js/imagesLoad.js"></script>
+
         <!--<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">-->
         <!--<link href="/favicon/ppics_152x152_w.png" sizes="152x152" rel="apple-touch-icon-precomposed">
         <link href="/favicon/ppics_144x144_w.png" sizes="144x144" rel="apple-touch-icon-precomposed">
@@ -67,7 +63,11 @@
 				<?php echo ($cur_page==($pages_count-1))?$pages_count:'Last'?>
 			</a>
 			</div>		
-		<?php }?>		
+		<?php }?>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script src="http://cdn.jsdelivr.net/masonry/2.1.08/jquery.masonry.min.js"></script>
+		<script src="http://cdn.jsdelivr.net/jquery.lazyload/1.8.4/jquery.lazyload.js" ></script>
+		<script src="/js/imagesLoad.js"></script>
 		<script>
 			var $container = $('.grid');
 			$container.imagesLoaded(function(){

@@ -12,8 +12,8 @@ require 'GoogleParser.php';
 
 const SECRET = 'eWIiubyP9P9rlLJkI6xD';
 //for localhost
-//const CDN_URL = '/images/';
-const CDN_URL = 'http://cdn.destroyedcuties.com/';
+const CDN_URL = '/images/';
+//const CDN_URL = 'http://cdn.destroyedcuties.com/';
 const ITEMS_PER_PAGE=30;
 
 $app = new \Slim\App(["settings" => $config]);
